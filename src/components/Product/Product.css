@@ -1,0 +1,11 @@
+.product-item {
+  border: 2px solid green;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.product-item img {
+  height: 240px;
+  width: 380px;
+  border-radius: 10px;
+}

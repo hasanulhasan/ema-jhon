@@ -5,7 +5,10 @@
 
 .products-container {
   background-color: #778ca3;
-  height: 900px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 15px;
 }
 
 .cart-container {
