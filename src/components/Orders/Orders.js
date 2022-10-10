@@ -4,7 +4,7 @@ import { removeFromDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
 
-const Orders = () => {
+const Orders = ({ clearCart }) => {
   const { products, initialCart } = useLoaderData();
   const [cart, setCart] = useState(initialCart);
   const removeReviewItems = (id) => {
@@ -21,7 +21,7 @@ const Orders = () => {
           }
         </div>
         <div className="cart-container">
-          <Cart cart={cart}></Cart>
+          <Cart cart={cart} clearCart={clearCart}></Cart>
         </div>
       </div>
     </div>
