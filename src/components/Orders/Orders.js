@@ -6,12 +6,16 @@ import ReviewItem from '../ReviewItem/ReviewItem';
 const Orders = () => {
   const { products, initialCart } = useLoaderData();
   const [cart, setCart] = useState(initialCart);
+  const removeReviewItems = (id) => {
+    const remaining = cart.filter(pd => pd.id !== id);
+    setCart(remaining);
+  }
   return (
     <div>
       <div className='shop-container'>
         <div className="orders-container">
           {
-            cart.map(pd => <ReviewItem key={pd.id} pd={pd}></ReviewItem>)
+            cart.map(pd => <ReviewItem key={pd.id} pd={pd} removeReviewItems={removeReviewItems}></ReviewItem>)
           }
         </div>
         <div className="cart-container">
