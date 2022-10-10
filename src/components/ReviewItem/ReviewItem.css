@@ -1,10 +1,29 @@
-.oder-items {}
+.oder-items {
+  /* background-color: #ffeaa7; */
+}
 
 .oder-items img {
   height: 92px;
   width: 92px;
 }
 
+.oder-items p {
+  margin-bottom: 0px;
+}
+
 .card-width {
   width: 700px;
+}
+
+.btn-style {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  border-color: brown;
+}
+
+.icon-style {
+  height: 50px;
+  width: 50px;
+  color: rgb(198, 85, 85);
 }
