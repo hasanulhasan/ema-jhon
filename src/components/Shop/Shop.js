@@ -3,8 +3,10 @@ import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import { addToDb, getStoredCart } from '../../utilities/fakedb'
 import './Shop.css'
+import { useLoaderData } from 'react-router-dom';
 
 const Shop = () => {
+  const product = useLoaderData();
   const [products, setProducts] = useState([])
   const [cart, setCart] = useState([]);
 
@@ -19,7 +21,7 @@ const Shop = () => {
     const savedCart = [];
     for (const id in storedCart) {
       const addedProduct = products.find(product => product.id === id)
-      console.log(addedProduct)
+      // console.log(addedProduct)
       if (addedProduct) {
         const quantity = storedCart[id];
         addedProduct.quantity = quantity;
