@@ -9,6 +9,7 @@ import { ProductsAndCartLoader } from './components/Shop/Loaders/ProductsAndCart
 import Error from './components/Error/Error';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
+import About from './components/About/About';
 
 
 function App() {
@@ -37,6 +38,10 @@ function App() {
         {
           path: 'login',
           element: <Login></Login>
+        },
+        {
+          path: 'about',
+          element: <About></About>
         },
         {
           path: 'Signup',
