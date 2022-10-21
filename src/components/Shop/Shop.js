@@ -4,6 +4,7 @@ import Cart from '../Cart/Cart';
 import { addToDb, deleteShoppingCart, getStoredCart } from '../../utilities/fakedb'
 import './Shop.css'
 import { useLoaderData } from 'react-router-dom';
+import { Toast } from 'bootstrap';
 
 const Shop = () => {
   const product = useLoaderData();
