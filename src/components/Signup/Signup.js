@@ -47,7 +47,7 @@ const Signup = () => {
           <Form.Control type="password" placeholder="Confirm Password" name='confirmPassword' />
         </Form.Group>
         <div className='fs-6'>
-          Already have an account? <Link to='/login'>Log in</Link>
+          Already have an account? <p className='text-text-primary d-inline-block'>Log in</p> <Link to='/login'></Link>
         </div>
         <p className='text-danger fs-6'>{error}</p>
         <div className="d-grid mx-auto mt-4">

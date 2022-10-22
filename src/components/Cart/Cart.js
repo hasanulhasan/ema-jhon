@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, Navigate } from 'react-router-dom';
 import './Cart.css'
 
 const Cart = ({ cart, clearCart }) => {
@@ -20,7 +21,8 @@ const Cart = ({ cart, clearCart }) => {
       <p>Total shipping: ${shipping}</p>
       <p>Tax: ${tax}</p>
       <h3>Grand Total: ${grandTotal}</h3>
-      <button onClick={clearCart}>Clear Cart</button>
+      <button onClick={clearCart} className='btn btn-light'>Clear Cart</button>
+      <button className='btn btn-light ms-2'><Link to='/shipping'>Proceed Shipping</Link></button>
     </div>
   );
 };
