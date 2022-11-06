@@ -4,23 +4,26 @@ import Cart from '../Cart/Cart';
 import { addToDb, deleteShoppingCart, getStoredCart } from '../../utilities/fakedb'
 import './Shop.css'
 import { useLoaderData } from 'react-router-dom';
-import { Toast } from 'bootstrap';
 
 const Shop = () => {
-  const product = useLoaderData();
-  const [products, setProducts] = useState([])
+  const { products, count } = useLoaderData();
+  // const [products, setProducts] = useState([])
   const [cart, setCart] = useState([]);
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(10);
+  const pages = Math.ceil(count / size);
+
 
   const clearCart = () => {
     setCart([]);
     deleteShoppingCart();
   }
 
-  useEffect(() => {
-    fetch('http://localhost:5001/products')
-      .then(res => res.json())
-      .then(data => setProducts(data));
-  }, [])
+  // useEffect(() => {
+  //   fetch('http://localhost:5001/products')
+  //     .then(res => res.json())
+  //     .then(data => setProducts(data));
+  // }, [])
 
   useEffect(() => {
     const storedCart = getStoredCart();
@@ -64,7 +67,16 @@ const Shop = () => {
       <div className="cart-container">
         <Cart cart={cart} clearCart={clearCart}></Cart>
       </div>
-    </div>
+      <div className="pagination">
+        {
+          [...Array(pages).keys()].map(number => <button
+            key={number}
+            className={page === number && 'selected'}
+            onClick={() => setPage(number)}
+          >{number}</button>)
+        }
+      </div>
+    </div >
   );
 };
 
