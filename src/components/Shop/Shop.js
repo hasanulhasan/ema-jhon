@@ -6,12 +6,24 @@ import './Shop.css'
 import { useLoaderData } from 'react-router-dom';
 
 const Shop = () => {
-  const { products, count } = useLoaderData();
+  // const { products, count } = useLoaderData();
   // const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
+  const [count, setCount] = useState(0);
   const [cart, setCart] = useState([]);
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(10);
   const pages = Math.ceil(count / size);
+
+  useEffect(() => {
+    const url = `http://localhost:5001/products?page=${page}&&size=${size}`;
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        setCount(data.count);
+        setProducts(data.products);
+      })
+  }, [page, size])
 
 
   const clearCart = () => {
@@ -68,6 +80,7 @@ const Shop = () => {
         <Cart cart={cart} clearCart={clearCart}></Cart>
       </div>
       <div className="pagination">
+        <p>page number {page} page size {size} </p>
         {
           [...Array(pages).keys()].map(number => <button
             key={number}
@@ -75,6 +88,12 @@ const Shop = () => {
             onClick={() => setPage(number)}
           >{number}</button>)
         }
+        <select onChange={(e) => setSize(e.target.value)} className='option'>
+          <option value="5">5</option>
+          <option value="10" selected>10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
       </div>
     </div >
   );

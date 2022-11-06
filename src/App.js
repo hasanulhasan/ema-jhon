@@ -23,9 +23,6 @@ function App() {
       children: [
         {
           path: '/',
-          loader: async () => {
-            return fetch('http://localhost:5001/products')
-          },
           element: <Shop></Shop>
         },
         {
