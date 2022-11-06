@@ -24,7 +24,7 @@ function App() {
         {
           path: '/',
           loader: async () => {
-            return fetch('products.json')
+            return fetch('http://localhost:5001/products')
           },
           element: <Shop></Shop>
         },
@@ -55,7 +55,7 @@ function App() {
         },
         {
           path: 'inventory',
-          element: <Inventory></Inventory>
+          element: <PrivateRouter><Inventory></Inventory></PrivateRouter>
         }
       ]
     }
